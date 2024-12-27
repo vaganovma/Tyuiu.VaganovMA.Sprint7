@@ -12,3 +12,4 @@ double z = (Math.Pow(x, 3) - 8) / (2 * Math.Pow(x, 2));
 z =Math.Round(z, 3); 
 File.WriteAllText(path, Convert.ToString(z)); 
 return path; 
+     
