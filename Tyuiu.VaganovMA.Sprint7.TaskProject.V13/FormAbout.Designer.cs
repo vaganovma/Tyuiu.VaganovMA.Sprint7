@@ -37,7 +37,7 @@
             // 
             // buttonCl
             // 
-            buttonCl.Location = new Point(649, 359);
+            buttonCl.Location = new Point(686, 353);
             buttonCl.Margin = new Padding(3, 2, 3, 2);
             buttonCl.Name = "buttonCl";
             buttonCl.Size = new Size(94, 30);
@@ -49,9 +49,10 @@
             // labelInfo
             // 
             labelInfo.AutoSize = true;
+            labelInfo.Font = new Font("Segoe UI", 12F);
             labelInfo.Location = new Point(516, 9);
             labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(375, 315);
+            labelInfo.Size = new Size(422, 252);
             labelInfo.TabIndex = 10;
             labelInfo.Text = resources.GetString("labelInfo.Text");
             // 
@@ -69,7 +70,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(890, 419);
+            ClientSize = new Size(931, 419);
             Controls.Add(buttonCl);
             Controls.Add(labelInfo);
             Controls.Add(pictureBox1);
