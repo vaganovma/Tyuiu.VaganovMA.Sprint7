@@ -12,7 +12,7 @@ namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13
 {
     public partial class FormAdd : Form
     {
-        public FormAdd()
+        public FormAdd(string fileName)
         {
             InitializeComponent();
         }

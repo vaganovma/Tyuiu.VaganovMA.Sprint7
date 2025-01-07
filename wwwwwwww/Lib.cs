@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13.Lib
+namespace wwwwwwww
 {
-    public class Library
+    public class Lib
     {
         public string video_code { get; set; }
         public string record_date { get; set; }
@@ -14,6 +14,5 @@ namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13.Lib
         public int theme { get; set; }
         public bool price { get; set; }
         public string actor { get; set; }
-
     }
 }

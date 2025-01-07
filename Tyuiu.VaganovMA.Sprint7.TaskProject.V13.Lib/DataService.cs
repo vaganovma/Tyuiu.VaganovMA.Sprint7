@@ -1,23 +1,22 @@
-using tyuiu.cources.programming.interfaces.Sprint7; 
 using System.IO; 
 using Newtonsoft.Json;
 using System.Diagnostics.Metrics;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json.Serialization;
+
+
  
 namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13.Lib; 
  
-public class DataService : ISprint7ProjectV13
+public class DataService
 {
     public DataService()
-    { 
-    
-    }
-    
+    {
 
-   
+
         public List<Library> GetLibraries(string JsonPath)
         {
+            string JsonPath = "../../../../Library.json";
             string json = File.ReadAllText(JsonPath);
 
             var books = JsonConvert.DeserializeObject<List<Library>>(json);
@@ -27,6 +26,8 @@ public class DataService : ISprint7ProjectV13
 
         public List<Library> SortLibrary(string JsonPath, int index)
         {
+            string JsonPath = "../../../../Library.json";
+
             string json = File.ReadAllText(JsonPath);
 
             var books = JsonConvert.DeserializeObject<List<Library>>(json);
@@ -51,8 +52,10 @@ public class DataService : ISprint7ProjectV13
             return books.ToList();
 
         }
-        public List<Library> SearchBook(string JsonPath, string text)
+        public List<Library> SearchFilm(string JsonPath, string text)
         {
+            string JsonPath = "../../../../Library.json";
+
 
             string json = File.ReadAllText(JsonPath);
 

@@ -9,11 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tyuiu.VaganovMA.Sprint7.TaskProject.V13.Lib\Tyuiu.VaganovMA.Sprint7.TaskProject.V13.Lib.csproj" />
+    <ProjectReference Include="..\wwwwwwww\wwwwwwww.csproj" />
   </ItemGroup>
 
   <ItemGroup>

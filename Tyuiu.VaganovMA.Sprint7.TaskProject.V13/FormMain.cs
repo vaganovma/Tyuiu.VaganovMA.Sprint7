@@ -1,20 +1,20 @@
+using wwwwwwww;
 using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.DataFormats;
-using Tyuiu.VaganovMA.Sprint7.TaskProject.V13.Lib;
-
 namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13
 {
     public partial class FormMain : Form
     {
         public FormMain()
         {
-            dataGridViewOutData_VMA.ColumnHeaderMouseClick += dataGridViewOutData_VMA.ColumnHeaderMouseClick;
+
         }
+        //dataGridViewOutData_VMA.ColumnHeaderMouseClick += dataGridViewOutData_VMA.ColumnHeaderMouseClick;
         static string JsonPath = "";
 
-        DataService ds = new DataService();
+        Class1 ds = new Class1();
         public class Film
         {
             public string author { get; set; }
@@ -89,32 +89,31 @@ namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13
             JsonPath = openFileDialogJSON_VMA.FileName;
 
             FormAdd f = new FormAdd(this.openFileDialogJSON_VMA.FileName);
-            List<Library> books = ds.GetLibraries(JsonPath);
+            List<Lib> books = ds.GetLibraries(JsonPath);
             dataGridViewOutData_VMA.AutoGenerateColumns = true;
             dataGridViewOutData_VMA.DataSource = books;
             dataGridViewOutData_VMA.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewOutData_VMA.Columns[0].HeaderText = "Автор";
-            dataGridViewOutData_VMA.Columns[1].HeaderText = "Название Фильма";
-            dataGridViewOutData_VMA.Columns[2].HeaderText = "Год написания";
+            dataGridViewOutData_VMA.Columns[0].HeaderText = "Видео код";
+            dataGridViewOutData_VMA.Columns[1].HeaderText = "Время Фильма";
+            dataGridViewOutData_VMA.Columns[2].HeaderText = "тема";
             dataGridViewOutData_VMA.Columns[3].HeaderText = "Стоимость фильма";
-            dataGridViewOutData_VMA.Columns[4].HeaderText = "Смотрил ли я?";
-            dataGridViewOutData_VMA.Columns[5].HeaderText = "Аннотация";
-
+            dataGridViewOutData_VMA.Columns[4].HeaderText = "Актер";
+            
 
             chartYearOfPublication_VMA.Series.Clear();
             chartPriceOfF_VMA.Series.Clear();
 
             foreach (var book in books)
             {
-                var seriesYear = chartYearOfPublication_VMA.Series.Add(book.Title);
-                seriesYear.Points.AddXY(book.Title, book.Year);
-                var seriesPrice = chartPriceOfF_VMA.Series.Add(book.Title);
-                seriesPrice.Points.AddXY(book.Title, book.Price);
+                var seriesYear = chartYearOfPublication_VMA.Series.Add(book.actor);
+                seriesYear.Points.AddXY(book.actor, book.record_date);
+                var seriesPrice = chartPriceOfF_VMA.Series.Add(book.actor);
+                seriesPrice.Points.AddXY(book.actor, book.price);
             }
 
-            chartYearOfPublication_VMA.ChartAreas[0].AxisX.Title = "Название фильма";
+            chartYearOfPublication_VMA.ChartAreas[0].AxisX.Title = "Актер";
             chartYearOfPublication_VMA.ChartAreas[0].AxisY.Title = "Год издания";
-            chartPriceOfF_VMA.ChartAreas[0].AxisX.Title = "Название фильма";
+            chartPriceOfF_VMA.ChartAreas[0].AxisX.Title = "Актер";
             chartPriceOfF_VMA.ChartAreas[0].AxisY.Title = "Цена";
 
             buttonDone.Enabled = true;
@@ -138,10 +137,11 @@ namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13
             try
             {
 
-                List<Library> books = ds.SearchFilm(JsonPath, textBoxSearch_VMA.Text);
+               // List<Lib> books = ds.SearchFilm(JsonPath, textBoxSearch_VMA.Text);
+                List<Lib> books = ds.SearchFilm(JsonPath, textBoxSearch_VMA.Text);
                 foreach (var book in books)
                 {
-                    if (textBoxSearch_VMA.Text != book.Title)
+                    if (textBoxSearch_VMA.Text != book.actor)
                     {
                         throw new Exception();
                     }
@@ -152,15 +152,15 @@ namespace Tyuiu.VaganovMA.Sprint7.TaskProject.V13
                 chartPriceOfF_VMA.Series.Clear();
                 foreach (var book in books)
                 {
-                    var seriesYear = chartYearOfPublication_VMA.Series.Add(book.Title);
-                    seriesYear.Points.AddXY(book.Title, book.Year);
-                    var seriesPrice = chartPriceOfF_VMA.Series.Add(book.Title);
-                    seriesPrice.Points.AddXY(book.Title, book.Price);
+                    var seriesYear = chartYearOfPublication_VMA.Series.Add(book.actor);
+                    seriesYear.Points.AddXY(book.actor, book.record_date);
+                    var seriesPrice = chartPriceOfF_VMA.Series.Add(book.actor);
+                    seriesPrice.Points.AddXY(book.actor, book.price);
                 }
 
-                chartYearOfPublication_VMA.ChartAreas[0].AxisX.Title = "Название фильма";
+                chartYearOfPublication_VMA.ChartAreas[0].AxisX.Title = "Актер";
                 chartYearOfPublication_VMA.ChartAreas[0].AxisY.Title = "Год издания";
-                chartPriceOfF_VMA.ChartAreas[0].AxisX.Title = "Название фильма";
+                chartPriceOfF_VMA.ChartAreas[0].AxisX.Title = "Актер";
                 chartPriceOfF_VMA.ChartAreas[0].AxisY.Title = "Цена";
             }
             catch
